@@ -25,25 +25,25 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_response(200)
 
             # Open a file and read it's data as bytes
-            # with open('test.gif', 'rb') as f:
-                # image_data = f.read()
+            with open('test2.gif', 'rb') as f:
+                image_data = f.read()
 
             # Send headers
-            self.send_header('Content-type', 'text/plain')  # image/gif, text/plain
-            # self.send_header('Content-Length', len(image_data))
+            self.send_header('Content-type', 'image/gif')  # image/gif, text/plain
+            self.send_header('Content-Length', len(image_data))
             self.end_headers()
 
             # Write some content to the response
-            # self.wfile.write(image_data)
-            self.wfile.write(b'Hello from python!')
+            self.wfile.write(image_data)
+            # self.wfile.write(b'Hello from python!')
             
             # Read the request data
             length = int(self.headers['Content-Length'])
             data = self.rfile.read(length)
 
             # Decode and print the request data
-            # data = data.decode('utf-8')
-            # print(data)
+            data = data.decode('utf-8')
+            print(data)
 
 # Define the port on which you want to run the server
 host = "192.168.2.60"
