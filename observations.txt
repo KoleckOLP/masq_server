@@ -1,0 +1,19 @@
+microXP VM a work (stuff at works just does not work as is should)
+    masq67.exe - works but with some issues
+        LET ME SEE A PREVIEW button - shows a preview with broken text
+
+Windows XP,10,11 at home
+    masq67.exe - to my surprise it works on my NICOLEw11 (that means that once that game is fixed it will be playable on Windows 11)
+        LET ME SEE A PREVIEW button - shows a preview without issues
+        I'M ON-LINE. LET ME PLAY MASQ!! button 
+            without changes - #1 almost instantly throws an error "There was a connectivity error"
+            if you redirect alteraction.com to a local ip using hosts file
+                but don't run the sever - #2 takes a while bit eventually throws an error "There was a connectivity error"
+                you run the server
+                    but only send 200 OK - #1 almost instantly throws an error "There was a connectivity error"
+                    send 200 OK and pretty much any text inclucing empty json {} - #3 immediately throws an error "Handler not found in object"
+                    send 200 OK and empty list [] - #4 instantly throws an error "Integer expected\n#error"
+                    send 200 OK and {messagetext: "text"} - #5 instantly throws an error "List expected for handler\n#getaProp"
+                    send 200 OK and {"messagetext": ["msg1", "msg2", "msg3"]}  - #6 instantly throws an error 'Integer expected\n"cost"'
+                    send 200 OK and {"cost": 1} - #5 instantly throws an error "List expected for handler\n#getaProp"
+                    send 200 OK and {"messagetext": ["cost": 1, 1, 1]} - #6 instantly throws an error "String expected\n(member 11 of castLib 1)"
