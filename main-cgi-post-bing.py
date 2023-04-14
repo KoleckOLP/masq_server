@@ -1,6 +1,9 @@
 # Import http.server and socketserver modules
+import socket
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import socketserver
+from importlib import reload
+import response
+# import socketserver
 
 # Define a custom handler class that inherits from BaseHTTPRequestHandler
 class MyHandler(BaseHTTPRequestHandler):
@@ -19,6 +22,13 @@ class MyHandler(BaseHTTPRequestHandler):
 
     # Override the do_POST method to handle POST requests
     def do_POST(self):
+
+        try:
+            reload(response)
+            contentype, return_data = response.give_data()
+        except Exception as e:
+            print(e)
+        
         # Check if the request is a cgi post request
         if self.path.startswith('/cgi-bin/'):
             # Read the request data
@@ -37,23 +47,24 @@ class MyHandler(BaseHTTPRequestHandler):
                 # image_data = f.read()
 
             # Send headers
-            self.send_header('Content-type', 'text/json')  # image/gif, text/plain
+            self.send_header('Content-type', contentype)  # image/gif, text/plain
             # self.send_header('Content-Length', len(image_data))
             self.end_headers()
 
             # Write some content to the response
             # self.wfile.write(image_data)
-            self.wfile.write(b'{"stuff": {"cost": 1, "more": 1, "license": 1}}')
+            self.wfile.write(return_data)  # {"stuff": {"cost": 1, "more": 1, "license": 1}}
+            print(return_data)
 
 # Define the port on which you want to run the server
-host = "192.168.2.60"
+host = response.serverip()
 port = 80
 
 # Create a server object using the handler class, host ip and port number
 server = HTTPServer((host, port), MyHandler)
 
 # Print a message to indicate that the server is running
-print(f'Server running on port {port}')
+print(f'Server running on port {host}:{port}')
 
 # Serve forever
 server.serve_forever()
