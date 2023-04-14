@@ -21,22 +21,6 @@ class MyHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         # Check if the request is a cgi post request
         if self.path.startswith('/cgi-bin/'):
-            # Send a 200 OK response
-            self.send_response(200)
-
-            # Open a file and read it's data as bytes
-            with open('test2.gif', 'rb') as f:
-                image_data = f.read()
-
-            # Send headers
-            self.send_header('Content-type', 'image/gif')  # image/gif, text/plain
-            self.send_header('Content-Length', len(image_data))
-            self.end_headers()
-
-            # Write some content to the response
-            self.wfile.write(image_data)
-            # self.wfile.write(b'Hello from python!')
-            
             # Read the request data
             length = int(self.headers['Content-Length'])
             data = self.rfile.read(length)
@@ -44,6 +28,22 @@ class MyHandler(BaseHTTPRequestHandler):
             # Decode and print the request data
             data = data.decode('utf-8')
             print(data)
+
+            # Send a 200 OK response
+            self.send_response(200)
+
+            # Open a file and read it's data as bytes
+            # with open('test.gif', 'rb') as f:
+                # image_data = f.read()
+
+            # Send headers
+            self.send_header('Content-type', 'text/json')  # image/gif, text/plain
+            # self.send_header('Content-Length', len(image_data))
+            self.end_headers()
+
+            # Write some content to the response
+            # self.wfile.write(image_data)
+            self.wfile.write(b'{"stuff": {"cost": 1, "more": 1, "license": 1}}')
 
 # Define the port on which you want to run the server
 host = "192.168.2.60"
