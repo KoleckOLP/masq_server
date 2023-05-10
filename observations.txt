@@ -17,3 +17,4 @@ Windows XP,10,11 at home
                     send 200 OK and {"messagetext": ["msg1", "msg2", "msg3"]}  - #6 instantly throws an error 'Integer expected\n"cost"'
                     send 200 OK and {"cost": 1} - #5 instantly throws an error "List expected for handler\n#getaProp"
                     send 200 OK and {"messagetext": ["cost": 1, 1, 1]} - #6 instantly throws an error "String expected\n(member 11 of castLib 1)"
+                    send 200 OK and 1 - #7 game gets stuck on please wait...
