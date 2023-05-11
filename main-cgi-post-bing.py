@@ -46,14 +46,19 @@ class MyHandler(BaseHTTPRequestHandler):
             # with open('test.gif', 'rb') as f:
                 # image_data = f.read()
 
-            # Send headers
-            self.send_header('Content-type', contentype)  # image/gif, text/plain
-            # self.send_header('Content-Length', len(image_data))
-            self.end_headers()
+            if "checkmessages" in data:
+                self.send_header('Content-type', "text/json")
+                self.end_headers()
+                self.wfile.write(b'["messagetext": ["cost": "this is cost", "more": "this is more", "license": "this is license"]]')
+            else:
+                # Send headers
+                self.send_header('Content-type', contentype)  # image/gif, text/plain
+                # self.send_header('Content-Length', len(image_data))
+                self.end_headers()
 
-            # Write some content to the response
-            # self.wfile.write(image_data)
-            self.wfile.write(return_data)  # {"stuff": {"cost": 1, "more": 1, "license": 1}}
+                # Write some content to the response
+                # self.wfile.write(image_data)
+                self.wfile.write(return_data)  # {"stuff": {"cost": 1, "more": 1, "license": 1}}
             print(return_data)
 
 # Define the port on which you want to run the server

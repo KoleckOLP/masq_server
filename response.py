@@ -4,5 +4,5 @@ def serverip():
 
 def give_data():
     contenttype = "text/json"
-    return_data = b'1' #b'{messagetext: [cost: 1, "text","text", goof]}'
+    return_data = b'["messagetext": []]'
     return (contenttype, return_data)
