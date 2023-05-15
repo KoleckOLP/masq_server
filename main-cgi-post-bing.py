@@ -113,5 +113,5 @@ server = HTTPServer((host, port), MyHandler)
 # Print a message to indicate that the server is running
 print(f'Server running on port {host}:{port}')
 
-# Serve forever
+# Run server in a loop
 server.serve_forever()

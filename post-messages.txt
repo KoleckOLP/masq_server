@@ -1,16 +1,31 @@
+=== I'm online I want to play ===
+
 cgimethod=checkmessages&versionnumber=67&cgipassword=tempPass7x8E9&app=g1
 
-cgimethod=createuserid&cgipassword=tempPass7x8E9&app=g1
+    === I'm over 17 ===
 
-cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&cgimethod=saveother&number=1&info=alteraction.com&app=g1
+        === I don't want to register: ===
+            cgimethod=createuserid&cgipassword=tempPass7x8E9&app=g1
 
-cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&versionnumber=67&cgimethod=firsttimeprojector&app=g1
+            cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&cgimethod=saveother&number=1&info=alteraction.com&app=g1
 
-cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&cgimethod=getticketsleft&episode=5&app=g1
-
-app=g1&cgimethod=whichwebpages
+            cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&versionnumber=67&cgimethod=firsttimeprojector&app=g1
 
 
-=== 14.05.23: ===
+            cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&cgimethod=getticketsleft&episode=5&app=g1
 
-cgipassword=tempPass7x8E9&username=namefromreply&password=password&userid=1&hdid=1625635125&cgimethod=checkcontinue&episode=2&app=g1
+            app=g1&cgimethod=whichwebpages
+
+        === I want to register ===
+
+            cgimethod=createuserid&cgipassword=tempPass7x8E9&app=g1
+
+            cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&cgimethod=saveother&number=1&info=alteraction.com&app=g1
+
+            cgipassword=tempPass7x8E9&username=&password=&hdid=649408478&versionnumber=67&cgimethod=firsttimeprojector&app=g1
+
+            !!! String expected\n(member 84 castLib 1) !!!
+
+        === 14.05.23: ===
+
+            cgipassword=tempPass7x8E9&username=namefromreply&password=password&userid=1&hdid=1625635125&cgimethod=checkcontinue&episode=2&app=g1
