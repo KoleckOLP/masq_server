@@ -1,0 +1,106 @@
+D:\dokumenty\okurz\Github\masq_server>py main-cgi-post-bing.py
+Server running on port 192.168.2.60:80
+cgimethod=checkmessages&versionnumber=67&cgipassword=tempPass7x8E9&app=g1
+192.168.2.60 - - [16/May/2023 10:45:53] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkmessages
+b'["messagetext": ["cost": "this is cost", "more": "this is more", "license": "this is license", "emailtext": "this is emailtext", "warnpages": "warnpages"]]'
+
+cgimethod=createuserid&cgipassword=tempPass7x8E9&app=g1
+192.168.2.60 - - [16/May/2023 10:46:00] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+createuserid
+b'["userID": 1]'
+
+cgipassword=tempPass7x8E9&username=&password=&userid=1&hdid=649408478&cgimethod=saveother&number=1&info=alteraction.com&app=g1
+192.168.2.60 - - [16/May/2023 10:46:00] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+saveother
+b''
+
+cgipassword=tempPass7x8E9&username=&password=&userid=1&hdid=649408478&versionnumber=67&cgimethod=firsttimeprojector&app=g1
+192.168.2.60 - - [16/May/2023 10:46:00] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+firsttimeprojector
+b'["messagetext": [""]]'
+
+cgimethod=createusername&cgipassword=tempPass7x8E9&username=okurz&email=o.kurzCatCatlas.cz&password=1234&activated=1&userid=1&hdid=649408478&app=g1
+192.168.2.60 - - [16/May/2023 10:46:17] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+createusername
+b'["userID": 1,"userName": "okurz"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=getticketsleft&episode=5&app=g1
+192.168.2.60 - - [16/May/2023 10:46:25] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+getticketsleft
+b'["ticketsleft": 15]'
+
+app=g1&cgimethod=whichwebpages
+192.168.2.60 - - [16/May/2023 10:46:26] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 10:51:13] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=2&app=g1
+192.168.2.60 - - [16/May/2023 10:51:13] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 10:56:08] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=3&app=g1
+192.168.2.60 - - [16/May/2023 10:56:08] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 10:59:57] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=4&app=g1
+192.168.2.60 - - [16/May/2023 10:59:57] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 11:05:39] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=2&app=g1
+192.168.2.60 - - [16/May/2023 11:05:39] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 11:08:48] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=3&app=g1
+192.168.2.60 - - [16/May/2023 11:08:48] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 11:12:49] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=4&app=g1
+192.168.2.60 - - [16/May/2023 11:12:49] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=setformsfilled&formsfilled=1&app=g1
+192.168.2.60 - - [16/May/2023 11:19:18] "POST /cgi-bin/setup.cgi HTTP/1.0" 200 -
+!!! unimplemented !!!
+b'["messagetext": []]'
+
+cgipassword=tempPass7x8E9&username=okurz&password=1234&userid=1&hdid=649408478&cgimethod=checkcontinue&episode=5&app=g1
+192.168.2.60 - - [16/May/2023 11:19:18] "POST /cgi-bin/user.cgi HTTP/1.0" 200 -
+checkcontinue
+b'["messageid": "success"]'
