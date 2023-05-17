@@ -44,7 +44,28 @@ class MyHandler(BaseHTTPRequestHandler):
             if "checkmessages" in data:
                 print("checkmessages")
                 contentype = "plain/text"
-                return_data = b'["messagetext": ["cost": "this is cost", "more": "this is more", "license": "this is license", "emailtext": "this is emailtext", "warnpages": "warnpages"]]'
+                # I don't like how much stuff is send using this one, I think it should be impoved (this is gamstat's super testing one)
+                return_data = b'["messagetext": ["cost": "this is cost", ' \
+                                               b'"more": "this is more", ' \
+                                               b'"license": "Welcome to MASQ!\nYou are using a custom local server made by koleq with help of gamstat.\nIf you find any issues report them here: https://github.com/KoleckOLP/masq_server/issues\nHave fun playing MASQ!", ' \
+                                               b'"emailtext": "Feel free to input nonsense data\nbut I recomend saving at the next step.", ' \
+                                               b'"optionmessage": "this is option", ' \
+                                               b'"firstendmessage": "firstend", ' \
+                                               b'"nextendmessage": "nextend", ' \
+                                               b'"return": "return", ' \
+                                               b'"ZStartAgain2": "zstart", ' \
+                                               b'"privacypolicy": "my privacy policy", ' \
+                                               b'"emailrequired": "email required", ' \
+                                               b'"episode": 5, ' \
+                                               b'"messageid": "asdasdasd", ' \
+                                               b'"hijack": "hijack", ' \
+                                               b'"flag": "flag", ' \
+                                               b'"RegisterDriven": "RegisterDriven", ' \
+                                               b'"VIPpassword": "VIPpassword", ' \
+                                               b'"warnpages": "warnpages", ' \
+                                               b'"episodemessage": "episodemessage", ' \
+                                               b'"substract": "substract", ' \
+                                               b'"substractmessage": "substractmessage"]]'
             elif "createuserid" in data:
                 print("createuserid")
                 contentype = "plain/text"
@@ -52,7 +73,7 @@ class MyHandler(BaseHTTPRequestHandler):
             elif "saveother" in data:
                 print("saveother")
                 contentype = "plain/text"
-                return_data = b''  # yep just empty reply, but I still send headder
+                return_data = b''  # yep just empty reply, but I still send headder (gamnstat)
             elif "firsttimeprojector" in data:
                 print("firsttimeprojector")
                 contentype = "plain/text"
@@ -61,7 +82,8 @@ class MyHandler(BaseHTTPRequestHandler):
                 print("createusername")
                 username = params.get("username", [""])[0]
                 contentype = "plain/text"
-                return_data = bytes(f'["userID": {userID},"userName": "{username}"]', "ascii")  # I assume you also send it userID
+                return_data = bytes(f'["userID": {userID}, ' \
+                                    f'"userName": "{username}"]', "ascii")  # I assume you also send it userID  
             elif "getticketsleft" in data:
                 print("getticketsleft")
                 contentype = "plain/text"
