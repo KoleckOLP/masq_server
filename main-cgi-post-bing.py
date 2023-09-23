@@ -4,6 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from importlib import reload
 import urllib.parse
 import response
+from process1 import run_the_game, change_url_in_ram
 
 # Code I found online to get your local ip
 def get_local_ip():
@@ -115,14 +116,18 @@ class MyHandler(BaseHTTPRequestHandler):
 local_ip = get_local_ip()
 
 # Define ip and the port on which you want to run the server
-host = "0.0.0.0" #local_ip
+host = "0.0.0.0"
 port = 80
 
 # Create a server object using the handler class, host ip and port number
 server = HTTPServer((host, port), MyHandler)
 
 # Print a message to indicate that the server is running
-print(f'Server running on port {host}:{port} your local ip is {local_ip}')
+print(f'SERVER: running on port {local_ip}:{port}')
+
+# this code launches the game and injects the new url into the game RAM
+run_the_game()
+change_url_in_ram(local_ip)
 
 # Run server in a loop
 server.serve_forever()

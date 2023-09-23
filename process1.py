@@ -1,61 +1,82 @@
 from pymem import Pymem
 from pymem.ptypes import RemotePointer
+from time import sleep
+import subprocess
 
-pm = Pymem("masq67.exe")
+def run_the_game():
+    subprocess.Popen("masq67.exe")
+    print("CLIENT: Game was called.")
 
-base_address = 0x00400000
-offset_to_pointer = 0x0001E1B8
+def change_url_in_ram(local_ip):  # local_ip
+    sleep(0.5) # this is perfect on a fast machine
+    while True:
+        try:
+            pm = Pymem("masq67.exe")
 
-pointer_object = RemotePointer(pm.process_handle, base_address + offset_to_pointer)
+            base_address = 0x00400000
+            offset_to_pointer = 0x0001E1B8
 
-address_from_pointer = pointer_object.value  # shouldn't be hex for later use
+            pointer_object = RemotePointer(pm.process_handle, base_address + offset_to_pointer)
 
-print(f"0. {hex(address_from_pointer)}")
+            address_from_pointer = pointer_object.value  # shouldn't be hex for later use
 
-pointer_object1 = RemotePointer(pm.process_handle, address_from_pointer+0x18)
+            # print(f"0. {hex(address_from_pointer)}")
 
-address_from_pointer1 = pointer_object1.value  # shouldn't be hex for later use
+            pointer_object1 = RemotePointer(pm.process_handle, address_from_pointer+0x18)
 
-print(f"1. {hex(address_from_pointer1)}")
+            address_from_pointer1 = pointer_object1.value  # shouldn't be hex for later use
 
-pointer_object2 = RemotePointer(pm.process_handle, address_from_pointer1+0x560)
+            # print(f"1. {hex(address_from_pointer1)}")
 
-address_from_pointer2 = pointer_object2.value  # shouldn't be hex for later use
+            pointer_object2 = RemotePointer(pm.process_handle, address_from_pointer1+0x560)
 
-print(f"2. {hex(address_from_pointer2)}")
+            address_from_pointer2 = pointer_object2.value  # shouldn't be hex for later use
 
-pointer_object3 = RemotePointer(pm.process_handle, address_from_pointer2+0x534)
+            # print(f"2. {hex(address_from_pointer2)}")
 
-address_from_pointer3 = pointer_object3.value  # shouldn't be hex for later use
+            pointer_object3 = RemotePointer(pm.process_handle, address_from_pointer2+0x534)
 
-print(f"3. {hex(address_from_pointer3)}")
+            address_from_pointer3 = pointer_object3.value  # shouldn't be hex for later use
 
-pointer_object4 = RemotePointer(pm.process_handle, address_from_pointer3+0x14)
+            # print(f"3. {hex(address_from_pointer3)}")
 
-address_from_pointer4 = pointer_object4.value  # shouldn't be hex for later use
+            pointer_object4 = RemotePointer(pm.process_handle, address_from_pointer3+0x14)
 
-print(f"4. {hex(address_from_pointer4)}")
+            address_from_pointer4 = pointer_object4.value  # shouldn't be hex for later use
 
-pointer_object5 = RemotePointer(pm.process_handle, address_from_pointer4+0x758)
+            # print(f"4. {hex(address_from_pointer4)}")
 
-address_from_pointer5 = pointer_object5.value  # shouldn't be hex for later use
+            pointer_object5 = RemotePointer(pm.process_handle, address_from_pointer4+0x758)
 
-print(f"5. {hex(address_from_pointer5)}")
+            address_from_pointer5 = pointer_object5.value  # shouldn't be hex for later use
 
-pointer_object6 = RemotePointer(pm.process_handle, address_from_pointer5+0x0)
+            # print(f"5. {hex(address_from_pointer5)}")
 
-address_from_pointer6 = pointer_object6.value  # shouldn't be hex for later use
+            pointer_object6 = RemotePointer(pm.process_handle, address_from_pointer5+0x0)
 
-print(f"6. {hex(address_from_pointer6)}")
+            address_from_pointer6 = pointer_object6.value  # shouldn't be hex for later use
 
-final_address = address_from_pointer6 + 0x10
+            # print(f"6. {hex(address_from_pointer6)}")
 
-value_at_final_address = pm.read_bytes(final_address, 31)
+            final_address = address_from_pointer6 + 0x10
 
-print(f"7. {hex(final_address), value_at_final_address }")
+            value_at_final_address = pm.read_bytes(final_address, 31)
 
-pm.write_bytes(final_address, b'http://192.168.001.111/cgi-bin/', 31)
+            # print(hex(final_address), value_at_final_address)
 
-print(f"8. {hex(final_address), value_at_final_address }")
+            formatted_ip = '.'.join([i.zfill(3) for i in local_ip.split('.')])
 
-exit(0)
+            new_url = b'http://'+bytes(formatted_ip, 'ascii')+b'/cgi-bin/'
+
+            pm.write_bytes(final_address, new_url, 31)
+
+            value_final_after_change = pm.read_bytes(final_address, 31)
+
+            # print(hex(final_address), value_final_after_change)
+            
+            print("CLIENT: Server URL was injected in the game successfully.")
+            break
+        except Exception as e:
+            # print(e)
+            sleep(0.5)
+            pass
