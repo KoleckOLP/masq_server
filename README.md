@@ -22,6 +22,9 @@ CLIENT: Server URL was injected in the game successfully.
  - At this point the server is running, and the client memory was injected with the server URL, you can play the game now.
  - !!! Do not close the CMD window !!! the CMD window is running the server.
 
+### Troubleshooting
+If the game opens and after pressing "I'm online let me play masq!!" it doesn't work, then your network is not routing packets correctly and I can't help you with that.
+- Workaround: turn off Wi-Fi and or disable all your network devices, then the game packets have nowhere to go but to the local server.
 
 ## plans
 
